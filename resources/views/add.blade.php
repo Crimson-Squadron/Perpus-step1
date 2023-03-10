@@ -87,8 +87,8 @@
 
                     <div class="form-group">
                       <label for="synopsisInput">Synopsis</label>
-                      <textarea class="form-control" id="synopsisInput" name="synopsis" rows="3" maxlength="300" placeholder="Enter synopsis" required></textarea>
-                      <small id="synopsisHelp" class="form-text text-muted">Max 300 characters. <span id="synopsisCounter">300</span> characters remaining.</small>
+                      <textarea class="form-control" id="synopsisInput" name="synopsis" rows="3" maxlength="255" placeholder="Enter synopsis" required></textarea>
+                      <small id="synopsisHelp" class="form-text text-muted">Max 255 characters. <span id="synopsisCounter">255</span> characters remaining.</small>
                     </div>
                     <script>
                       $(document).ready(function() {

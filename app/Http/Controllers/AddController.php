@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Book;
 
 class AddController extends Controller
@@ -34,4 +35,17 @@ class AddController extends Controller
 
         return redirect('/home')->with('success', 'Buku berhasil ditambahkan!');
     }
+
+    public function delete(Book $book) {
+        Storage::delete($book->image_path);
+        $book->delete();
+
+        return redirect('/home');
+    }
+
+    // public function edit(Book $book) {
+    //     Storage::edit($book->image_path);
+    //     $book = Book::find($id);
+    //     dd($book);
+    // }
 }
