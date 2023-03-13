@@ -43,6 +43,37 @@ class AddController extends Controller
         return redirect('/home');
     }
 
+    public function tampilkandata($id){
+        $book = Book::find($id);
+        //dd($book);
+
+        return view('edit', compact('book'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $book = Book::findOrFail($id);
+
+        $book->title = $request->input('title');
+        $book->writer = $request->input('writer');
+        $book->publisher = $request->input('publisher');
+        $book->synopsis = $request->input('synopsis');
+
+        if ($request->hasFile('image')) {
+            // hapus gambar lama jika ada
+            if ($book->image_path) {
+                Book::destroy('storage/images/'.$book->image_path);
+            }
+
+            $imageName = $request->file('image')->store('images');
+            $book->image_path = $imageName;
+            $book->save();
+        }
+
+        $book->save();
+        return redirect('/home')->with('success', 'Buku berhasil diupdate!');
+    }
+
     // public function edit(Book $book) {
     //     Storage::edit($book->image_path);
     //     $book = Book::find($id);

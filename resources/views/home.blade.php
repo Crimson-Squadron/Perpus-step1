@@ -40,7 +40,7 @@
                             <!-- <h5 class="card-title" style="-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">The King in Yellow</h5> -->
                             <div class="row">
                               <div class="m-auto">
-                                <a href="#" class="btn btn-primary px-5 py-2 mt-2">Edit</a>
+                                <a href="/tampilkandata/{{$book->id}}" class="btn btn-primary px-5 py-2 mt-2">Edit</a>
                               </div>
                               <div class="m-auto">
                                 <a href="/{{$book->id}}/delete" class="btn btn-primary px-5 py-2 mt-2">Hapus</a>
@@ -80,6 +80,7 @@
           <p style="-webkit-line-clamp: 5; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;" maxlength="260"><strong>Synopsis:</strong> {{ $book->synopsis }}</p>
         </div>
         <div class="modal-footer" style="border: none;">
+          <a href="{{ route('generate.pdf') }}" class="btn btn-primary" style="position: absolute; bottom: 20px; right: 100px;">Generate PDF</a>
           <button type="button" class="btn btn-secondary" data-dismiss="modal" style="position: absolute; bottom: 20px; right: 30px;">Close</button>
         </div>
       </div>
