@@ -43,7 +43,7 @@ class AddController extends Controller
         return redirect('/home');
     }
 
-    public function tampilkandata($id){
+    public function edit($id){
         $book = Book::find($id);
         //dd($book);
 
@@ -74,9 +74,15 @@ class AddController extends Controller
         return redirect('/home')->with('success', 'Buku berhasil diupdate!');
     }
 
-    // public function edit(Book $book) {
-    //     Storage::edit($book->image_path);
-    //     $book = Book::find($id);
-    //     dd($book);
-    // }
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('search');
+
+        $books = Book::where('title', 'LIKE', '%'.$searchTerm.'%')
+                    ->orWhere('writer', 'LIKE', '%'.$searchTerm.'%')
+                    ->orWhere('publisher', 'LIKE', '%'.$searchTerm.'%')
+                    ->get();
+
+        return view('/home', compact('books'));
+    }
 }

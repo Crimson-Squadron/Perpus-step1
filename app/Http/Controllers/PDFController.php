@@ -14,6 +14,6 @@ class PDFController extends Controller
 
       $pdf = \PDF::loadView('pdf', compact('books'));
 
-      return $pdf->download('books.pdf');
+      return $pdf->download('Book Report.pdf');
     }
 }

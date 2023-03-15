@@ -9,10 +9,10 @@
     </style>
 </head>
 <body>
-    <h1>Book Report</h1>
+    <h2>Book Report</h2>
 
     @foreach ($books as $book)
-    <div style="border: 1px solid black; padding: 20px; margin-bottom: 20px;">
+    <div style="border: 1px solid black; padding: 20px; margin-bottom: 20px; background-color:#D2D2D2;">
       <div style="display: flex;">
         <div style="flex: 1; border: 1px solid black; display: inline-block;">
           <img src="{{ public_path('storage/'.$book->image_path) }}" alt="{{ $book->title }}" style="height: 200px; width: auto; object-fit: cover;">
